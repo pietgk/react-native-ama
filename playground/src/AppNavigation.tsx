@@ -17,6 +17,7 @@ import { FormScreen } from './screens/Form.screen';
 import { HomeScreen } from './screens/Home.screen';
 import { LoadingScreen } from './screens/Loading.screen';
 import { PressableScreen } from './screens/Pressable.screen';
+import { StorybookScreen } from './screens/Storybook.screen';
 import { SwitchListItemScreen } from './screens/SwitchListItemScreen';
 import { TextScreen } from './screens/Text.screen';
 import { TouchableOpacityScreen } from './screens/TouchableOpacity.screen';
@@ -50,6 +51,15 @@ export const AppNavigator = () => {
           component={HomeScreen}
           options={{
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Storybook"
+          component={StorybookScreen}
+          options={{
+            headerTitle: () => (
+              <Header noMargin title={'Storybook'} autofocus white />
+            ),
           }}
         />
         <Stack.Screen
@@ -243,6 +253,7 @@ const BaseNavigatorOptions: NativeStackNavigationOptions = {
 
 export type RootStackParamList = {
   Home: undefined;
+  Storybook: undefined;
   Pressable: undefined;
   TouchableOpacity: undefined;
   TouchableWithoutFeedback: undefined;

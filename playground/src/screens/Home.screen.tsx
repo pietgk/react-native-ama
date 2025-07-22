@@ -30,6 +30,7 @@ export const HomeScreen = () => {
         <ScrollView style={styles.list}>
           <Header title="Playground" />
           <View style={styles.group}>
+            <ListItem title="Stories" navigateTo="Storybook" />
             <ListItem title="Pressable components" navigateTo="Pressable" />
             <ListItem title="Text" border={false} navigateTo="Text" />
           </View>
