@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@react-native', 'plugin:jest/recommended'],
+  extends: ['@react-native', 'plugin:jest/recommended', 'plugin:storybook/recommended'],
   plugins: ['jest', 'import'],
   env: {
     browser: true,

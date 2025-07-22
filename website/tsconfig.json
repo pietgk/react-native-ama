@@ -1,7 +1,16 @@
 {
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "downlevelIteration": true
-  }
+    "downlevelIteration": true,
+    "jsx": "react",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
