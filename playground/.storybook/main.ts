@@ -14,7 +14,15 @@ const config: StorybookConfig = {
     "options": {}
   },
   async viteFinal(config) {
+    // Remove vite-tsconfig-paths plugin to prevent it from scanning the entire monorepo
+    if (config.plugins) {
+      config.plugins = config.plugins.filter(
+        (plugin) => !(plugin && typeof plugin === 'object' && 'name' in plugin && plugin.name === 'vite-tsconfig-paths')
+      );
+    }
+
     // Add alias resolution for React Native web and AMA packages
+    // This replaces what vite-tsconfig-paths would have done
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,

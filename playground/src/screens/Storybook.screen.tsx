@@ -8,6 +8,7 @@ import {
 import { Spacer } from '../components/Spacer';
 import { Text } from '../components/Text';
 import { theme } from '../theme';
+import { ComponentStorybook } from "../components/ComponentStorybook";
 
 export const StorybookScreen = () => {
   return (
@@ -16,11 +17,10 @@ export const StorybookScreen = () => {
       <ScrollView style={styles.list}>
         <Spacer height="big" />
         <Text mt={8} mb={8}>
-          This screen displays the accessibility checks AMA can perform on
-          pressable elements.
+          Storybook stories.
         </Text>
         <Spacer height="big" />
-
+        <ComponentStorybook />
         <Spacer height={'big'} />
       </ScrollView>
     </SafeAreaView>
