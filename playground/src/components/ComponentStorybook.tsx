@@ -1,8 +1,14 @@
-import * as React from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { view } from '../../.rnstorybook/storybook.requires';
 
-export const ComponentStorybook = () => {
-  if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED !== "true") return null;
-  const StorybookUIRoot = React.lazy(() => import("../../.rnstorybook"));
-
-  return <StorybookUIRoot />;
-};
+export const ComponentStorybook = view.getStorybookUI({
+  storage: {
+    getItem: AsyncStorage.getItem,
+    setItem: AsyncStorage.setItem,
+  },
+  // Enable WebSocket client to connect to web Storybook server
+  enableWebsockets: true,
+  host: 'localhost',
+  port: 7007,
+  secured: false,
+});

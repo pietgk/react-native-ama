@@ -6,6 +6,11 @@ const StorybookUIRoot = view.getStorybookUI({
     getItem: AsyncStorage.getItem,
     setItem: AsyncStorage.setItem,
   },
+  // Enable WebSocket client to connect to web Storybook server
+  enableWebsockets: true,
+  host: 'localhost',
+  port: 7007,
+  secured: false,
 });
 
 export default StorybookUIRoot;

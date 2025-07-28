@@ -37,6 +37,7 @@ export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        id={undefined}
         screenOptions={{
           ...BaseNavigatorOptions,
           ...amaAnimationScreenOptions,

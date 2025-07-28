@@ -19,7 +19,10 @@ const COLORS: { [key in A11ySeverity]: string } = {
   Serious: '#FFFf00',
 };
 
-function countA11yIssues(issues: A11yIssue[]): A11yCounts {
+function countA11yIssues(issues: A11yIssue[] | undefined): A11yCounts {
+  if (!issues || !Array.isArray(issues)) {
+    return { must: 0, should: 0 };
+  }
   return issues.reduce<A11yCounts>(
     (acc, { type }) => {
       if (type === 'MUST' || type === 'MUST_NOT') {
@@ -38,7 +41,7 @@ const AMAErrorComponent = ({ issues }: { issues?: A11yIssue[] }) => {
     id: number;
     position: Position;
   }>();
-  const { must, should } = countA11yIssues(issues ?? []);
+  const { must, should } = countA11yIssues(issues);
   const filteredIssues = useRef<A11yIssue[]>([]);
   const issueToView = useRef<A11yIssue>(null);
 
@@ -259,7 +262,7 @@ const AMAOverlay = ({ issue, position, closeOverlay }: AMAOverlayProps) => {
           },
         ]}
       >
-        <GetRuleError issue={issue} />
+        {GetRuleError && <GetRuleError issue={issue} />}
 
         <Pressable onPress={openHelp} role="button">
           <Text style={styles!.link}>Learn more</Text>
@@ -293,6 +296,7 @@ const styles = __DEV__
         left: 24,
         right: 24,
         backgroundColor: '#fff',
+        borderColor: 'green',
         padding: 12,
         borderRadius: 4,
         justifyContent: 'center',

@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "clean": "rm -rf node_modules .yarn/install-state.gz *.tsbuildinfo && rm -rf node_modules/.vite node_modules/.cache && rm -rf ~/Library/Developer/Xcode/DerivedData/* 2>/dev/null || true"
   },
   "dependencies": {
     "@react-navigation/core": "^7.12.1",
@@ -23,10 +24,12 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
-    "react-native-svg": "15.11.2"
+    "react-native-svg": "15.11.2",
+    "react-native-url-polyfill": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-class-static-block": "^7.27.1",
     "@gorhom/bottom-sheet": "^5.1.6",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-community/datetimepicker": "^8.4.2",
@@ -41,9 +44,13 @@
     "eslint": "^9.31.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-storybook": "^9.0.17",
+    "os-browserify": "^0.3.0",
     "react-dom": "19.0.0",
+    "react-native-get-random-values": "^1.11.0",
     "react-native-web": "^0.20.0",
+    "readable-stream": "^4.7.0",
     "storybook": "^9.0.17",
+    "tty-browserify": "^0.0.1",
     "typescript": "~5.8.3",
     "vite": "^6.0.0"
   },

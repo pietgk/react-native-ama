@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { DevSettings } from 'react-native';
 import ReactNativeAmaModule from '../ReactNativeAmaModule';
-import { logAMAError } from './logAMAError';
+// import { logAMAError } from './logAMAError';
 import { A11yIssue, Rule, RuleAction } from './types';
 
 export const NON_OVERRIDABLE_RULES: string[] | undefined = __DEV__
@@ -54,7 +54,7 @@ export const useAMADev = () => {
     startAMA();
 
     ReactNativeAmaModule.addListener('onA11yIssues', (issues: A11yIssue[]) => {
-      setIssues(issues.issues);
+      setIssues(issues);
     });
   }, []);
 
